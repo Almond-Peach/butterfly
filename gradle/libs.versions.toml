@@ -1,0 +1,25 @@
+[versions]
+arturbosch-detekt = "1.23.1"
+benmanes-versions = "0.47.0"
+java-dev-jna = "5.13.0"
+jetbrains-compose = "1.4.3"
+jetbrains-kotlin = "1.9.0"
+kodein-di-kodein-di = "7.20.2"
+littlerobots-version-catalog-update = "0.8.1"
+pinterest-ktlint = "0.50.0"
+
+[plugins]
+arturbosch-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "arturbosch-detekt" }
+benmanes-versions = { id = "com.github.ben-manes.versions", version.ref = "benmanes-versions" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbrains-compose" }
+jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "jetbrains-kotlin" }
+littlerobots-version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "littlerobots-version-catalog-update" }
+
+[libraries]
+# @keep
+arturbosch-detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "arturbosch-detekt" }
+# @keep
+benmanes-versions-gradle-plugin = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "benmanes-versions" }
+java-dev-jna = { module = "net.java.dev.jna:jna", version.ref = "java-dev-jna" }
+kodein-di-kodein-di = { module = "org.kodein.di:kodein-di", version.ref = "kodein-di-kodein-di" }
+pinterest-ktlint = { module = "com.pinterest:ktlint", version.ref = "pinterest-ktlint" }

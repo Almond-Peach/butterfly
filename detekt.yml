@@ -1,0 +1,37 @@
+build:
+  maxIssues: 0
+
+config:
+  validation: true
+  warningsAsErrors: true
+
+output-reports:
+  active: true
+  exclude:
+    #  - 'HtmlOutputReport'
+    - 'MdOutputReport'
+    - 'SarifOutputReport'
+    - 'TxtOutputReport'
+    - 'XmlOutputReport'
+
+processors:
+  active: false
+
+comments:
+  active: false
+
+naming:
+  FunctionNaming:
+    ignoreAnnotated: [
+      'androidx.compose.runtime.Composable',
+    ]
+
+style:
+  MagicNumber:
+    ignorePropertyDeclaration: true
+  MaxLineLength:
+    maxLineLength: 120
+  UnusedPrivateMember:
+    ignoreAnnotated: [
+      'androidx.compose.ui.tooling.preview.Preview',
+    ]

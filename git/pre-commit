@@ -1,0 +1,38 @@
+#!/bin/bash
+
+function cdToGitTopLevelDir() {
+  local gitTopLevelDir
+  gitTopLevelDir=$(git rev-parse --show-toplevel)
+  cd "${gitTopLevelDir}" || exit
+}
+
+function runGradleTask() {
+  local task=$1
+  local options=$2
+
+  # Validate the task and options arguments
+  if [ -z "${task}" ]; then
+    echo 'No gradle task to run provided.'
+    exit 1
+  fi
+
+  # Run the gradle task
+  echo "Running gradle task '${task}'."
+
+  local output
+  local exit_code
+
+  output=$(./gradlew --quiet "${task}" ${options:+"${options}"} 2>&1)
+  exit_code=$?
+
+  # Validate the task output
+  if [ ${exit_code} -ne 0 ]; then
+    echo "${output}"
+    echo "'${task}' gradle task failed with exit code ${exit_code}."
+    exit ${exit_code}
+  fi
+}
+
+cdToGitTopLevelDir
+runGradleTask 'ktlintCheck'
+runGradleTask 'detekt'
